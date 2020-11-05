@@ -31,3 +31,20 @@ fakeRequest('/about')
 });
 
 
+//promise chaining - multiple asynchronous actions that run 1 after another and only need 1 catch
+
+fakeRequest('/users')
+.then((res)=>{
+	console.log(res);
+	const id = res.data[0].id;
+	return fakeRequest('/users/${id}');
+})
+.then((res)=>{
+	console.log(res);
+	const postId = res.data.topPostId;
+	return fakeRequest('/post/${postId}');
+})
+.catch((err)=>{
+	console.log('oh no',err);
+});
+
