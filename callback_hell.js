@@ -16,5 +16,9 @@ const moveX = (element,amount,delay,callback) => {
 	},delay);
 };
 
-moveX(btn,100,1000,()=>{moveX(btn,200,1000);
+//move 100 pixels then call callback and move another 100 pixels. Chain callbacks
+moveX(btn,100,1000,()=>{
+	moveX(btn,200,1000,()=>{
+		moveX(btn,300,1000)
+	});
 });
