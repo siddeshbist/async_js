@@ -22,3 +22,6 @@ moveX(btn,100,1000,()=>{
 		moveX(btn,300,1000)
 	});
 });
+
+//if you had 2 callbacks, success and failure, so const moveX = (element,amount,delya,onsuccess,onfailure) then when calling moveX would 
+// be very complicated, this is why we introduce promises into moveX
